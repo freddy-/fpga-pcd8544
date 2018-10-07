@@ -1,1 +1,1 @@
--intstyle "ise" -incremental -lib "secureip" -o "F:/DEV/FPGA/projetos/PCD8544/spi_tb_isim_beh.exe" -prj "F:/DEV/FPGA/projetos/PCD8544/spi_tb_beh.prj" "work.spi_tb" 
+-intstyle "ise" -incremental -lib "secureip" -o "F:/DEV/FPGA/projetos/PCD8544/spi_595_controller_tb_isim_beh.exe" -prj "F:/DEV/FPGA/projetos/PCD8544/spi_595_controller_tb_beh.prj" "work.spi_595_controller_tb" 

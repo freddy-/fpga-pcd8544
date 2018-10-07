@@ -1,0 +1,30 @@
+Command line:
+   spi_595_controller_tb_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  49595
+
+Sat Oct 06 21:35:07 2018
+
+
+ Elaboration Time: 0.0156 sec
+
+ Current Memory Usage: 667.185 Meg
+
+ Total Signals          : 33
+ Total Nets             : 31
+ Total Signal Drivers   : 17
+ Total Blocks           : 6
+ Total Primitive Blocks : 3
+ Total Processes        : 7
+ Total Traceable Variables  : 15
+ Total Scalar Nets and Variables : 516
+Total Line Count : 66
+Total Line Count : 66
+
+ Total Simulation Time: 0.0468 sec
+
+ Current Memory Usage: 667.185 Meg
+
+Sat Oct 06 21:38:14 2018
+

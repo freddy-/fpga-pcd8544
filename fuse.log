@@ -1,19 +1,24 @@
-Running: F:\DEV\FPGA\xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib secureip -o F:/DEV/FPGA/projetos/PCD8544/spi_tb_isim_beh.exe -prj F:/DEV/FPGA/projetos/PCD8544/spi_tb_beh.prj work.spi_tb 
+Running: fuse.exe -relaunch -intstyle "ise" -incremental -lib "secureip" -o "F:/DEV/FPGA/projetos/PCD8544/spi_595_controller_tb_isim_beh.exe" -prj "F:/DEV/FPGA/projetos/PCD8544/spi_595_controller_tb_beh.prj" "work.spi_595_controller_tb" 
 ISim P.20131013 (signature 0x7708f090)
 Number of CPUs detected in this system: 4
 Turning on mult-threading, number of parallel sub-compilation jobs: 8 
 Determining compilation order of HDL files
+Parsing VHDL file "F:/DEV/FPGA/projetos/PCD8544/spi_clk_div.vhd" into library work
 Parsing VHDL file "F:/DEV/FPGA/projetos/PCD8544/spi.vhd" into library work
-Parsing VHDL file "F:/DEV/FPGA/projetos/PCD8544/spi_tb.vhd" into library work
+Parsing VHDL file "F:/DEV/FPGA/projetos/PCD8544/spi_595.vhd" into library work
+Parsing VHDL file "F:/DEV/FPGA/projetos/PCD8544/spi_595_controller_tb.vhd" into library work
 Starting static elaboration
 Completed static elaboration
 Compiling package standard
 Compiling package std_logic_1164
 Compiling package numeric_std
+Compiling architecture behavioral of entity spi_clk_div [spi_clk_div_default]
 Compiling architecture behavioral of entity spi [spi_default]
-Compiling architecture behavior of entity spi_tb
+Compiling architecture behavioral of entity spi_595 [spi_595_default]
+Compiling architecture behavior of entity spi_595_controller_tb
 Time Resolution for simulation is 1ps.
-Compiled 6 VHDL Units
-Built simulation executable F:/DEV/FPGA/projetos/PCD8544/spi_tb_isim_beh.exe
-Fuse Memory Usage: 35088 KB
-Fuse CPU Usage: 389 ms
+Waiting for 1 sub-compilation(s) to finish...
+Compiled 10 VHDL Units
+Built simulation executable F:/DEV/FPGA/projetos/PCD8544/spi_595_controller_tb_isim_beh.exe
+Fuse Memory Usage: 35180 KB
+Fuse CPU Usage: 452 ms

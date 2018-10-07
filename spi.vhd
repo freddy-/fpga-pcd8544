@@ -57,45 +57,30 @@ architecture Behavioral of spi is
 	signal r_DATA : std_logic_vector(7 downto 0) := (others => '0');
 
 	-- flag que indica se o divisor de clock deve iniciar
-	signal r_RUN_CLK_DIV : std_logic := '0';
+	signal r_START_CLK_DIV : std_logic := '0';
 
 	-- clk do SPI
 	signal r_SLOW_CLK : std_logic := '0';
 
-	-- contador do 'divisor' de clock
-	signal r_CLK_DIV_CNT : natural range 0 to 14 := 0;
-
-	-- limite do contador divisor de clock
-	constant c_CLK_DIV_MAX : natural range 0 to 14 := 14;
 begin
+
+	clk_div : entity work.spi_clk_div
+	PORT MAP(
+		i_CLK => i_CLK,
+		i_START_CLK_DIV => r_START_CLK_DIV,
+        o_CLK => r_SLOW_CLK
+	);
 
 	process (i_CLK)
 	begin
 		if (rising_edge(i_CLK)) then
-
-			-- criar um sinal de clk enable a cada 2 mhz, este sinal deve durar um ciclo de clk do sistema
-			-- este processo incrementa um contador a cada clk do sistema
-			-- quando o valor do contado chegar ao valor definido, o sinal r_SLOW_CLK recebe '1'
-			-- quando o valor for diferente do definido, o valor de r_SLOW_CLK é '0'
-			if (r_RUN_CLK_DIV = '1') then
-				if (r_CLK_DIV_CNT = c_CLK_DIV_MAX) then
-					r_CLK_DIV_CNT <= 0;
-					r_SLOW_CLK <= '1';
-				else
-					r_CLK_DIV_CNT <= r_CLK_DIV_CNT + 1;
-					r_SLOW_CLK <= '0';
-				end if ;
-			end if ;
-
-
 			case r_FSM_STATE is
 				when s_IDLE =>
 					if (i_START = '1') then
 						r_DATA <= i_DATA;
 						r_FSM_STATE <= s_START_CLK_DIV;
 						r_COUNTER <= 7;
-						r_CLK_DIV_CNT <= 0;
-						r_RUN_CLK_DIV <= '0';
+						r_START_CLK_DIV <= '0';
 						o_FINISHED <= '0';
 					else
 						r_FSM_STATE <= s_IDLE;
@@ -103,7 +88,7 @@ begin
 
 				when s_START_CLK_DIV =>
 						r_FSM_STATE <= s_SENDING;
-						r_RUN_CLK_DIV <= '1';
+						r_START_CLK_DIV <= '1';
 
 				when others =>
 					null;
